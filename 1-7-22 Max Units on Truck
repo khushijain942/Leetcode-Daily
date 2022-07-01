@@ -1,4 +1,5 @@
 //New Learning : Comparator Function
+//Time complexity->O(nlogn)=O(n)->O(nlogn)
 class Solution {
 public:
     static bool cmp(vector<int> &v1,vector<int> &v2)  //comparator function
