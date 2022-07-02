@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxArea(int h, int w, vector<int>& hCut, vector<int>& vCut)
+    {
+        hCut.push_back(0);
+        hCut.push_back(h);
+        sort(hCut.begin(),hCut.end());
+        vCut.push_back(0);
+        vCut.push_back(w);
+        sort(vCut.begin(),vCut.end());
+        int maxHeight=0;
+        for(int i=1;i<hCut.size();i++)
+            maxHeight=max(maxHeight,hCut[i]-hCut[i-1]);
+        int maxWidth=0;
+        for(int i=1;i<vCut.size();i++)
+            maxWidth=max(maxWidth,vCut[i]-vCut[i-1]);
+        return (1LL*maxHeight*maxWidth) % 1000000007;
+    }
+};
