@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int wiggleMaxLength(vector<int>& nums) {
+        int n=nums.size(),count;
+        if(nums.size()==1)
+            return 1;
+        int prevDiff=nums[1]-nums[0];
+        if(prevDiff!=0)
+            count=2;
+        else
+            count=1;
+        for(int i=2;i<nums.size();i++)
+        {
+            int currentDiff=nums[i]-nums[i-1];
+            if((currentDiff>0 && prevDiff<=0)||(currentDiff<0 && prevDiff>=0))
+            {
+                count++;
+                prevDiff=currentDiff;
+            }
+        }
+        return count;
+    }
+};
