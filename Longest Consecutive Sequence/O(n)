@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {    
+        unordered_set<int> s(nums.begin(),nums.end());//inserting elements in set 
+        int res=0;
+        for(int x:nums)
+        {
+            if(s.find(x-1)==s.end())//if n-1 does not exist in set
+            {
+                int minStart=x; //minimal starting of the sequence found
+                int count=1;//count 1 since including x,checking from currnum+1
+                while(s.find(minStart+1)!=s.end())//if every element after it present in set
+                {
+                    count++;                     //increment count               
+                    minStart++;
+                }
+                res=max(res,count);
+            }
+        }
+        return res;
+    }
+};
